@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+
+  <!-- ✅ Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+
+  <!-- Your custom CSS -->
+   {% block custom_css %}
+    
+   {% endblock custom_css %}
+  
+</head>
+<body>
+
+    {% block content %}
+    {% endblock content %}
+
+  <!-- ✅ Bootstrap JS (optional, for interactive components like modals, dropdowns) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1Dh8z8I4e+U5z5lZL+cbGA+Y4pHPsuUib0p+0U6VxZ+" 
+    crossorigin="anonymous"></script>
+</body>
+</html>

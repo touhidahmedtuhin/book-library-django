@@ -1,0 +1,86 @@
+{% extends "book_outlet/base.html" %}
+{% load static %}
+{% block title %}
+  All Books
+{% endblock title %}
+
+{% block custom_css %}
+<style>
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+  }
+  .bg-gradient-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+  }
+  .bg-gradient-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b);
+  }
+  .bg-gradient-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+  }
+  .bg-gradient-danger {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+  }
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #343a40, #212529);
+  }
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25) !important;
+  }
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+    height: 200px; /* Fixed height for uniform card size */
+  }
+  .card-body {
+    padding: 1.5rem 1rem; /* Consistent padding */
+  }
+</style>
+{% endblock custom_css %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="display-5 text-center mb-5 fw-bold text-primary">All Books</h1>
+  
+  {% if books %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+      {% for book in books %}
+        {% cycle 'bg-gradient-primary' 'bg-gradient-success' 'bg-gradient-info' 'bg-gradient-warning' 'bg-gradient-danger' 'bg-gradient-dark' as card_color silent %}
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0 text-white {{ card_color }} transition-all hover-lift">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+              <h5 class="card-title fw-bold mb-0 fs-5 lh-sm px-3">
+                <a href="{{ book.get_absolute_url }}" class="text-white text-decoration-none stretched-link">
+                  {{ book.title }}
+                </a>
+              </h5>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center py-5">
+      <p class="lead text-muted">No books available at the moment.</p>
+    </div>
+  {% endif %}
+</div>
+<div class="card text-center my-4 border-0 shadow-sm">
+  <div class="card-body">
+    <p class="card-text mb-2">
+      Total Number of Books: 
+      <span class="badge bg-primary">{{ total_num_of_books }}</span>
+    </p>
+    <p class="card-text">
+      Average Rating: 
+      <span class="badge bg-success">{{ avg_rating.rating__avg }}</span>
+    </p>
+  </div>
+</div>
+
+
+{% endblock content %}

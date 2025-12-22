@@ -1,0 +1,39 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+*.env
+
+# Django SQLite database
+db.sqlite3
+*.sqlite3-journal
+
+# Django media and static files (generated at runtime)
+media/
+staticfiles/
+
+# Migrations (optional: keep if you want schema history in Git)
+# Uncomment if you don’t want to track migration files
+# */migrations/
+
+# Logs
+*.log
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
