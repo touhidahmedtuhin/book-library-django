@@ -21,5 +21,5 @@ class Book(models.Model):
     super().save(*args, **kwargs)
   
   def __str__(self):
-    return f"{self.title} by {self.author} (Rating: {self.rating}), Best Seller: {self.is_best_seller})"
+    return f"{self.title} by {self.author} (Rating: {self.rating}), Best Seller: {self.is_bestseller})"
   
