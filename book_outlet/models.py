@@ -11,7 +11,7 @@ class Book(models.Model):
   ])
   author = models.CharField(max_length=100, default="Unknown")
   is_bestseller = models.BooleanField(default=False)
-  slug = models.SlugField(default="",blank=True,null=False,editable=False)
+  slug = models.SlugField(default="",blank=True,null=False,unique=True)
 
   def get_absolute_url(self):
      return reverse("book_details", args=[self.slug])
