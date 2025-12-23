@@ -10,7 +10,7 @@ def index(request):
   return render(request,'book_outlet/index.html',{
     "books":books,
     "total_num_of_books":num_books,
-    "avg_rating":avg_rating
+    "avg_rating":avg_rating 
   })
 
 def book_details(request,slug):
