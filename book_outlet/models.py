@@ -7,6 +7,9 @@ from django.utils.text import slugify
 class Country(models.Model):
   name = models.CharField(max_length=100, unique=True)
   code = models.CharField(max_length=5, unique=True, help_text="ISO country code (e.g., USA, BGD)")
+  def __str__(self):
+        return f"{self.name} ({self.code})"
+
 
 
 
@@ -45,5 +48,5 @@ class Book(models.Model):
 
   
   def __str__(self):
-    return f"{self.title} by {self.author} (Rating: {self.rating}), Best Seller: {self.is_bestseller})"
+    return f"{self.title} by {self.author} (Rating: {self.rating}), Best Seller: {self.is_bestseller}) {self.published_countries}"
   
